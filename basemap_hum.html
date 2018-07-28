@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Basemap</title>
+    <meta charset="utf-8" />
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   crossorigin=""/>	
+   
+ <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+   crossorigin=""></script>
+   
+   
+<script src="https://npmcdn.com/@turf/turf@5.1.6/turf.min.js"></script>
+   </head>
+<body>
+    <div id="map" style="width: 100%; height: 100vh;"></div>
+
+ 
+
+    <script>
+        var map = L.map('map').setView([40.851394,14.246952], 12);
+		
+		//OSM
+        /*mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors',
+            maxZoom: ,
+            })*/
+		//OSM Humanitarian	
+			  var osm_hum = new L.TileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
+						{
+						  attribution: '&copy; <a class="blanc" href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors data</a> | &copy; <a href="https://wiki.openstreetmap.org/wiki/Humanitarian_map_style">OSM Humanitarian Style</a>',
+						  maxZoom: 20
+						}).addTo(map);
+
+						var point1 = turf.point([-73.988214, 40.749128]);
+
+    </script>
+</body>
+</html>
